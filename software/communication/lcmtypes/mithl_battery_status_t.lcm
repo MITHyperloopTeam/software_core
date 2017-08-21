@@ -1,0 +1,29 @@
+package mithl;
+struct battery_status_t
+{
+    int64_t utime;
+    
+    boolean battery_comms_lock;
+    int8_t battery_i2c_error_code;
+
+        // bit 0: Deadman timer PF expired
+        // bit 1: Cell voltage under extremely low voltage threshold
+        // bit 2: Cell voltage over extremely high voltage thresh
+        // bit 3: MOSFET failure
+        // bit 4: Cell voltage unbalance PF
+    int8_t battery_pf_error_reg;
+    
+      // 0: Shutdown request reg
+      // 1: VLPF shutdown clear reg (write 1 to clear)
+      // 2: VHPF shutdown clear reg (write 1 to clear)
+      // 3: MFPF clear
+      // 4: CUPF clear
+    int8_t battery_shutdown_reg;
+
+    double last_battery_read_time;
+    float current; // amps
+    float internal_temp; // *C
+    float pack_voltage; // V
+    int8_t num_cells;
+    float cell_voltage[num_cells]; // V
+}

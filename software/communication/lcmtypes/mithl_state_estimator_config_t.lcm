@@ -1,0 +1,35 @@
+package mithl;
+
+struct state_estimator_config_t
+{
+ int64_t utime;
+
+ // Core estimator
+ float Sigma_meas_acc;
+ float Sigma_process_add_pos;
+ float Sigma_process_add_vel;
+ float Sigma_process_add_acc;
+ float fiducial_timeout;
+ float fiducial_FP_rate;
+ float fiducial_sigma; // meters, uncertainty per strip detection
+ float fiducial_vel_sigma; // meters, uncertainty per strip detection as a percent of current estimated speed
+ float fiducial_max_vel_difference; // max speed difference we'll allow in speed estimate update from strip
+ float incremental_tare_alpha;
+ boolean use_fiducial_detections;
+ boolean use_multiple_particles;
+ int8_t max_particles;
+
+ // Tube parameters
+ float tube_length;
+ float fiducial_separation;
+ float distance_after_last_fiducial;
+ float fiducial_width;
+
+ // Stopping detector parameters
+ float SD_update_period;
+ float SD_stopping_threshold; // variance threshold across all channels.
+ float SD_forward_acc_threshold; // accelerating forward higher than this is automatically not stopped
+ float SD_stop_timeout; // required time of constant stopping to consider it as being truly stopped
+}
+
+

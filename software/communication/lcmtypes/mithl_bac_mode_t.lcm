@@ -1,0 +1,11 @@
+package mithl;
+struct bac_mode_t
+{
+	int64_t utime;
+
+    int8_t mode;
+    
+    const int8_t MODE_ESTOP = 0;
+    const int8_t MODE_TELEOP = 1;
+    const int8_t MODE_AUTO = 2;
+}

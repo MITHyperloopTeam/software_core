@@ -1,0 +1,8 @@
+package mithl;
+
+struct vectorXf_t
+{
+ int64_t utime;
+ int8_t rows;
+ float data[rows];
+}

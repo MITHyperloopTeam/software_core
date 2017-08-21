@@ -1,0 +1,236 @@
+group "00.Simulator" {
+    cmd "simulator" {
+        exec = "${MIT_HL_ROOT}/simulation/simulate ${MIT_HL_ROOT}/config/simConfig.yaml";
+        host = "pilot";
+    }
+    cmd "simulation control UI" {
+        exec = "python ${MIT_HL_ROOT}/UI/sim_control.py";
+        host = "pilot";
+    }
+}
+
+
+group "10.Flashing Code" {
+    cmd "flash analog front" {
+        exec = "bash -c 'cd ${MIT_HL_ROOT}/embedded_modules/analog_front && make -B all install UPLOAD_PORT=/dev/mithl_analog_front' EXTRA_DEFINE_1=-DNETMON_ID=50";
+        host = "odroid";
+    }
+    cmd "flash analog rear" {
+        exec = "bash -c 'cd ${MIT_HL_ROOT}/embedded_modules/analog_rear && make -B all install UPLOAD_PORT=/dev/mithl_analog_rear' EXTRA_DEFINE_1=-DNETMON_ID=51";
+        host = "odroid";
+    }
+    cmd "flash fiducial" {
+        exec = "bash -c 'cd ${MIT_HL_ROOT}/embedded_modules/fiducial && make -B all install UPLOAD_PORT=/dev/mithl_fiducial' EXTRA_DEFINE_1=-DNETMON_ID=52";
+        host = "odroid";
+    }
+    cmd "flash flight control" {
+        exec = "bash -c 'cd ${MIT_HL_ROOT}/embedded_modules/flight_control && make -B all install UPLOAD_PORT=/dev/mithl_flight_control' EXTRA_DEFINE_1=-DNETMON_ID=53";
+        host = "odroid";
+    }
+    cmd "flash low speed" {
+        exec = "bash -c 'cd ${MIT_HL_ROOT}/embedded_modules/low_speed && make -B all install UPLOAD_PORT=/dev/mithl_low_speed' EXTRA_DEFINE_1=-DNETMON_ID=54";
+        host = "odroid";
+    }
+}
+
+group "11.Flashing Code (flash only)" {
+    cmd "flash nomake analog front" {
+        exec = "bash -c 'cd ${MIT_HL_ROOT}/embedded_modules/analog_front && make install UPLOAD_PORT=/dev/mithl_analog_front' EXTRA_DEFINE_1=-DNETMON_ID=50";
+        host = "odroid";
+    }
+    cmd "flash nomake analog rear" {
+        exec = "bash -c 'cd ${MIT_HL_ROOT}/embedded_modules/analog_rear && make install UPLOAD_PORT=/dev/mithl_analog_rear' EXTRA_DEFINE_1=-DNETMON_ID=51";
+        host = "odroid";
+    }
+    cmd "flash nomake fiducial" {
+        exec = "bash -c 'cd ${MIT_HL_ROOT}/embedded_modules/fiducial && make install UPLOAD_PORT=/dev/mithl_fiducial' EXTRA_DEFINE_1=-DNETMON_ID=52";
+        host = "odroid";
+    }
+    cmd "flash nomake flight control" {
+        exec = "bash -c 'cd ${MIT_HL_ROOT}/embedded_modules/flight_control && make install UPLOAD_PORT=/dev/mithl_flight_control' EXTRA_DEFINE_1=-DNETMON_ID=53";
+        host = "odroid";
+    }
+    cmd "flash nomake low speed" {
+        exec = "bash -c 'cd ${MIT_HL_ROOT}/embedded_modules/low_speed && make install UPLOAD_PORT=/dev/mithl_low_speed' EXTRA_DEFINE_1=-DNETMON_ID=54";
+        host = "odroid";
+    }
+}
+
+group "20.Relays" {
+    cmd "relay_analog_front" {
+        exec = "${MIT_HL_ROOT}/embedded_modules/analog_front/build/serial_lcm_bridge_analog_front /dev/mithl_analog_front";
+        host = "odroid";
+    }
+    cmd "relay_analog_rear" {
+        exec = "${MIT_HL_ROOT}/embedded_modules/analog_rear/build/serial_lcm_bridge_analog_rear /dev/mithl_analog_rear";
+        host = "odroid";
+    }
+    cmd "relay_fiducial" {
+        exec = "${MIT_HL_ROOT}/embedded_modules/fiducial/build/serial_lcm_bridge_fiducial /dev/mithl_fiducial";
+        host = "odroid";
+    }
+    cmd "relay_flight_control" {
+        exec = "${MIT_HL_ROOT}/embedded_modules/flight_control/build/serial_lcm_bridge_flight_control /dev/mithl_flight_control";
+        host = "odroid";
+    }
+    cmd "relay_low_speed" {
+        exec = "${MIT_HL_ROOT}/embedded_modules/low_speed/build/serial_lcm_bridge_low_speed /dev/mithl_low_speed";
+        host = "odroid";
+    }
+}
+
+group "30.Sims" {
+    cmd "sim_analog_front" {
+        exec = "${MIT_HL_ROOT}/embedded_modules/analog_front/build/analog_front_module.sim.bin";
+        host = "pilot";
+    }
+    cmd "sim_analog_rear" {
+        exec = "${MIT_HL_ROOT}/embedded_modules/analog_rear/build/analog_rear_module.sim.bin";
+        host = "pilot";
+    }
+   cmd "sim_fiducial" {
+        exec = "${MIT_HL_ROOT}/embedded_modules/fiducial/build/fiducial_module.sim.bin";
+        host = "pilot";
+    }
+    cmd "sim_flight_control" {
+        exec = "${MIT_HL_ROOT}/embedded_modules/flight_control/build/flight_control_module.sim.bin";
+        host = "pilot";
+    }
+    cmd "sim_low_speed" {
+        exec = "${MIT_HL_ROOT}/embedded_modules/low_speed/build/low_speed_module.sim.bin";
+        host = "pilot";
+    }
+
+}
+
+group "70. Interfaces"{    
+    cmd "ESTOP" {
+        exec = "python ${MIT_HL_ROOT}/UI/estop_button.py";
+        host = "pilot";
+    }
+    cmd "health check" {
+        exec = "python ${MIT_HL_ROOT}/UI/pod_health_checker_panel.py ${MIT_HL_ROOT}/config/healthConfig.cfg";
+        host = "pilot";
+    }
+    cmd "Camera Vis" {
+        exec = "python ${MIT_HL_ROOT}/UI/camera_vis.py";
+        host = "pilot";
+    }
+    cmd "pod pilot" {
+        exec = "python ${MIT_HL_ROOT}/UI/pod_pilot_interface.py";
+        host = "pilot";
+    }
+    cmd "netdiag" {
+        exec = "python ${MIT_HL_ROOT}/UI/netdiag_vis.py";
+        host = "pilot";
+    }
+
+    cmd "brake testing" {
+        exec = "python ${MIT_HL_ROOT}/UI/brake_testing.py";
+        host = "pilot";
+    }
+
+    cmd "low speed testing" {
+        exec = "python ${MIT_HL_ROOT}/UI/low_speed_driver.py";
+        host = "pilot";
+    }
+
+    cmd "mode control" {
+        exec = "python ${MIT_HL_ROOT}/UI/mode_control_buttons.py";
+        host = "pilot";
+    }
+    cmd "fiducial panel" {
+        exec = "python ${MIT_HL_ROOT}/UI/fiducial_testing.py ${MIT_HL_ROOT}/config/fiducialParamsDefault.yaml";
+        host = "pilot";
+    }
+
+}
+
+group "80. ODroid Drivers"{
+    cmd "odroid relay" {
+        exec = "${MIT_HL_ROOT}/communication/net_diag/run_net_monitor 1";
+        host = "odroid";
+    }    
+    cmd "ODroid Temp" {
+        exec = "python ${MIT_HL_ROOT}/tools/report_cpu_temp.py ODROID_TEMP";
+        host = "odroid";
+    }
+    cmd "pod health monitor" {
+        exec = "python ${MIT_HL_ROOT}/odroid/pod_health_monitor.py ${MIT_HL_ROOT}/config/healthConfig.yaml";
+        host = "odroid";
+    }
+}
+
+cmd "param_server" {
+    exec = "${MIT_HL_ROOT}/odroid/param_server/param_server simConfig.yaml";
+    host = "pilot";
+}
+
+cmd "flight_state_machine" {
+    exec = "python ${MIT_HL_ROOT}/odroid/flight_state_machine.py";
+    host = "odroid";
+}
+
+cmd "spacex telemetry relay" {
+    exec = "python ${MIT_HL_ROOT}/odroid/spacex_telemetry_relay.py";
+    host = "odroid";
+}
+
+cmd "pilot relay" {
+    exec = "${MIT_HL_ROOT}/communication/net_diag/run_net_monitor 0";
+    host = "pilot";
+}
+
+
+
+cmd "LCM Message Spy" {
+    exec = "lcm-spy -l udpm://239.255.76.67:62237";
+    host = "pilot";
+}
+
+script "relays" {
+    start cmd "relay_analog_front";
+    start cmd "relay_analog_rear";
+    start cmd "relay_fiducial";
+    start cmd "relay_flight_control";
+    start cmd "relay_low_speed";
+}
+
+script "simulate_flight" {
+    start cmd "simulator";
+    start cmd "sim_flight_control";
+    start cmd "sim_analog_front";
+    start cmd "sim_analog_rear";
+    start cmd "sim_low_speed";
+    start cmd "sim_fiducial";
+    start cmd "pod pilot";
+    start cmd "flight_state_machine";
+    start cmd "pilot relay";
+    start cmd "odroid relay";
+    start cmd "spacex telemetry relay";
+    start cmd "ODroid Temp";
+}
+
+script "pod_complete_startup" {
+    start cmd "relay_flight_control";
+    start cmd "relay_analog_front";
+    start cmd "relay_analog_rear";
+    start cmd "relay_low_speed";
+    start cmd "relay_fiducial";
+    start cmd "pod pilot";
+    start cmd "flight_state_machine";
+    start cmd "pilot relay";
+    start cmd "odroid relay";
+    start cmd "spacex telemetry relay";
+    start cmd "ODroid Temp";
+}
+
+script "pod_startup_minus_relays" {
+    start cmd "pod pilot";
+    start cmd "flight_state_machine";
+    start cmd "pilot relay";
+    start cmd "odroid relay";
+    start cmd "spacex telemetry relay";
+    start cmd "ODroid Temp";
+}
+

@@ -1,0 +1,23 @@
+package mithl;
+struct bac_state_high_rate_t
+{
+	int64_t utime;
+
+    float distance_1;
+    float distance_2;
+    float brake_pressure;
+    float estimated_motor_rate;
+    float estimated_distance;
+    float estimated_distance_velocity;
+
+    float gh_front;
+    float gh_rear;
+
+    float PumpMotorPWM; // [0, 1]
+    boolean OnOffValve;
+    float ValvePWM; // [0, 1]
+
+    float setpoint;
+    float error;
+	float integrator;
+}

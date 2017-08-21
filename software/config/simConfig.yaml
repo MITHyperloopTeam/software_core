@@ -1,0 +1,89 @@
+timestep: 0.0001 # seconds
+maxSimulationTime: 30 # seconds
+maxEndVelocity: 0.001 # m/s
+
+autoStartSim: 0  # 1 to wait for UI lcm start msg 
+
+estimator:
+  binSize: 0.1 # meters
+
+tube:
+  length: 1280.16 # meters
+  ambientTemp: 25. # Celsius
+  pressure: 1000. # absolute pressure in Pascal
+
+  fiducial_separation: 30.48 # meters
+  distance_after_last_fiducial: 30.48 # meters
+  fiducial_width: .0981 # meters, including the calibration offset of the sensor in the strip
+
+  pushingAcceleration: 50. # m/s^2
+  pushingEnd: 100.0 # meters
+
+pod:
+  mass: 250. # kg
+  crossSectionalArea: 1. # m^2
+  dragCoefficient: 10.0 # dimensionless
+  states: ['STATE_ARM',
+           'STATE_LAUNCH',
+           'STATE_FLIGHT',
+           'STATE_SAFE',
+           'STATE_FLOAT',
+           'STATE_DRIVE',
+           'SOFT_STOP',
+           'ESTOP',
+           'FAULT'
+          ]
+  lowSpeedMaxSpeed: 60.0 #m/s <-- dummy value
+
+  components:
+    - type: "BrakeSystem"
+      xyz: [0.0, 0.0, 0.0]
+      rpy: [0.0, 0.0, 0.0]
+    - type: "Pusher"
+      xyz: [0.0, 0.0, 0.0]
+      rpy: [0.0, 0.0, 0.0]
+      force: [0., 0., 0.]
+      channel: "SIM_PUSHER_CMD"
+    - type: "IMU"
+      xyz: [1.0, 0.0, 0.0]
+      rpy: [0.0, 0.0, 0.0]
+      bias: [0.5, 0.0, 0.0, 0.0, 0.0, 0.0]
+      moving_noise: 2
+      stopped_noise: 0.01
+      broadcast_period: 0.01
+      channel: "SIM_FC_IMU_F"
+      x_flip: 1.0
+    - type: "IMU"
+      xyz: [-1.0, 0.0, 0.0]
+      rpy: [0.0, 0.0, 0.0]
+      bias: [-0.33, 0.0, 0.0, 0.0, 0.0, 0.0]
+      moving_noise: 10
+      stopped_noise: 0.01
+      broadcast_period: 0.01
+      channel: "SIM_FC_IMU_R"
+      x_flip: -1.0
+    - type: "FiducialSensor"
+      channel: "_FD_O"
+      broadcast_period: 0.1
+      false_positive_rate_per_meter: 0.0000
+      true_positive_rate_per_strip: 0.95
+      strip_duration_jitter: 0.0001
+      strip_width_bias: 0.00
+    - type: "LevForcer"
+      xyz: [1.0,0.0,0.0]
+      rpy: [0., 0., 0.]
+      podlev_drag_peak_speed: 8 # m/s
+      podlev_drag_peak_magnitude: 3000 # newtons # Philippe's Note: HIGH
+      podlev_drag_peak_spread: 10
+      podlev_drag_above_peak: 185 
+      podlev_drag_above_peak_slope: 0.5
+    #  podmass: 250
+    #  podlev_center: 8
+    #  podlev_slope: 1.5
+    #  podlev_height: .0015 
+
+
+    #- type: "ConstantForcer"
+    #  xyz: [1., 0., 0]
+    #  rpy: [0., 0., 0]
+    #  force: [0., 0., 0.]

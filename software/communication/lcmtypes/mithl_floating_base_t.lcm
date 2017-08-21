@@ -1,0 +1,8 @@
+package mithl;
+
+struct floating_base_t
+{
+ int64_t utime;
+ float q[6];
+ float v[6];
+}

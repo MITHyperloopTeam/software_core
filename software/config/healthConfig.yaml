@@ -1,0 +1,447 @@
+message_rate_checks:
+  frequency_droop_allowed: 0.66
+  items:
+    - channel: "ODROID_TEMP"
+      target_frequency: 2
+
+    - channel: "FSM_OH"
+      target_frequency: 20
+    - channel: "FSM_STATE"
+      target_frequency: 20
+
+
+    - channel: "_AF_BATTERY"
+      target_frequency: 2
+      resp_level: -1
+    - channel: "_AF_OH"
+      target_frequency: 100
+    - channel: "_AF_OM"
+      target_frequency: 30
+    - channel: "_AF_OL"
+      target_frequency: 2
+
+    - channel: "_AR_BATTERY"
+      target_frequency: 2
+      resp_level: 1
+    - channel: "_AR_OH"
+      target_frequency: 100
+    - channel: "_AR_OM"
+      target_frequency: 30
+    - channel: "_AR_OL"
+      target_frequency: 2
+
+    - channel: "_BAC_STATE_H"
+      target_frequency: 30
+    - channel: "_BAC_STATE_L"
+      target_frequency: 4
+    - channel: "_BAC_AUTO_CMD_STATE"
+      target_frequency: 2
+    - channel: "_BAC_TELEOP_CMD_STATE"
+      target_frequency: 4
+    - channel: "_BAC_CONFIG_STATE"
+      target_frequency: 2
+    - channel: "_BAC_MODE_STATE"
+      target_frequency: 2
+      resp_level: 1
+
+    - channel: "_FC_OH"
+      target_frequency: 100
+    - channel: "_FC_OL"
+      target_frequency: 2
+    - channel: "_FC_SE"
+      target_frequency: 33
+      resp_level: 2
+    - channel: "_FC_SE_STATE"
+      target_frequency: 10
+    - channel: "_FC_SE_CONFIG"
+      target_frequency: 2
+
+    - channel: "_FD_O"
+      target_frequency: 40
+    - channel: "_FD_OL"
+      target_frequency: 2
+
+    - channel: "_NSUM"
+      target_frequency: 2
+
+    - channel: "_LS_OL"
+      target_frequency: 2
+
+    - channel: "_RADM_CLAMP_CURCONF"
+      target_frequency: 4
+    - channel: "_RADM_CLAMP_STATUS"
+      target_frequency: 4
+    - channel: "_RADM_WHEEL_CURCONF"
+      target_frequency: 4
+    - channel: "_RADM_WHEEL_STATUS"
+      target_frequency: 4
+
+    - channel: "WEBCAM_F"
+      target_frequency: 2
+    - channel: "WEBCAM_R"
+      target_frequency: 2
+
+sensor_checks:
+  items:
+    "Ski Sensors":
+      - name: "Left Front GH"
+        units: "mm"
+        range: [25, 85]
+        noise_upper: 5
+        channel: "_AF_OM"
+        type: "analog_front_medium_rate_t"
+        field_str: "ski_front_left_gh"
+      - name: "Right Front GH"
+        units: "mm"
+        range: [25, 85]
+        noise_upper: 5
+        channel: "_AF_OM"
+        type: "analog_front_medium_rate_t"
+        field_str: "ski_front_right_gh"
+      - name: "Left Rear GH"
+        units: "mm"
+        range: [25, 85]
+        noise_upper: 5
+        channel: "_AR_OM"
+        type: "analog_rear_medium_rate_t"
+        field_str: "ski_rear_left_gh"
+      - name: "Right Rear GH"
+        units: "mm"
+        range: [25, 85]
+        noise_upper: 5
+        channel: "_AR_OM"
+        type: "analog_rear_medium_rate_t"
+        field_str: "ski_rear_right_gh"
+
+      - name: "Left Front Pot"
+        units: "mm"
+        range: [0, 50]
+        noise_upper: 5
+        channel: "_AF_OM"
+        type: "analog_front_medium_rate_t"
+        field_str: "ski_front_left_pot"
+      - name: "Right Front Pot"
+        units: "mm"
+        range: [0, 50]
+        noise_upper: 5
+        channel: "_AF_OM"
+        type: "analog_front_medium_rate_t"
+        field_str: "ski_front_right_pot"
+      - name: "Left Rear Pot"
+        units: "mm"
+        range: [0, 50]
+        noise_upper: 5
+        channel: "_AR_OM"
+        type: "analog_rear_medium_rate_t"
+        field_str: "ski_rear_left_pot"
+      - name: "Right Rear Pot"
+        units: "mm"
+        range: [0, 50]
+        noise_upper: 5
+        channel: "_AR_OM"
+        type: "analog_rear_medium_rate_t"
+        field_str: "ski_rear_right_pot"
+
+      - name: "Left Ski IMU Z"
+        units: "m/s/s"
+        range: [-156, 156]
+        noise_upper: 0.05
+        channel: "_AR_OH"
+        type: "analog_rear_high_rate_t"
+        field_str: "ski_left_imu_zdd"
+      - name: "Right Ski IMU Z"
+        units: "m/s/s"
+        range: [-156, 156]
+        noise_upper: 0.05
+        channel: "_AR_OH"
+        type: "analog_rear_high_rate_t"
+        field_str: "ski_right_imu_zdd"
+
+    "LCM Sensors":
+      - name: "Front Pot"
+        units: "mm"
+        range: [0, 50]
+        noise_upper: 5
+        channel: "_AF_OM"
+        type: "analog_front_medium_rate_t"
+        field_str: "lcm_front_pot"
+      - name: "Front GH"
+        units: "mm"
+        range: [25, 85]
+        noise_upper: 5
+        channel: "_AF_OM"
+        type: "analog_front_medium_rate_t"
+        field_str: "lcm_front_gh"
+      - name: "Rear Pot"
+        units: "mm"
+        range: [0, 50]
+        noise_upper: 5
+        channel: "_AR_OM"
+        type: "analog_rear_medium_rate_t"
+        field_str: "lcm_rear_pot"
+      - name: "Rear GH"
+        units: "mm"
+        range: [25, 85]
+        noise_upper: 5
+        channel: "_AR_OM"
+        type: "analog_rear_medium_rate_t"
+        field_str: "lcm_rear_gh"
+
+      - name: "Front LCM Acc"
+        units: "m/s/s"
+        range: [-156, 156]
+        noise_upper: 0.2
+        channel: "_AF_OH"
+        type: "analog_front_high_rate_t"
+        field_str: "acc_1d_front"
+      - name: "Rear LCM Acc"
+        units: "m/s/s"
+        range: [-156, 156]
+        noise_upper: 0.2
+        channel: "_AR_OH"
+        type: "analog_rear_high_rate_t"
+        field_str: "acc_1d_rear"
+
+    "Brakes and Low Speed Drive":
+      - name: "Left Pot"
+        units: "inch"
+        range: [0, 5.95]
+        noise_upper: 0.4
+        channel: "_BAC_STATE_H"
+        type: "bac_state_high_rate_t"
+        field_str: "distance_1"
+      - name: "Right Pot"
+        units: "inch"
+        range: [0, 5.95]
+        noise_upper: 0.4
+        channel: "_BAC_STATE_H"
+        type: "bac_state_high_rate_t"
+        field_str: "distance_2"
+      - name: "Front GH"
+        units: "mm"
+        range: [25, 85]
+        noise_upper: 5
+        channel: "_BAC_STATE_H"
+        type: "bac_state_high_rate_t"
+        field_str: "gh_front"
+      - name: "Rear GH"
+        units: "mm"
+        range: [25, 85]
+        noise_upper: 5
+        channel: "_BAC_STATE_H"
+        type: "bac_state_high_rate_t"
+        field_str: "gh_rear"
+
+      - name: "Brake IMU Z"
+        units: "m/s/s"
+        range: [-156, 156]
+        noise_upper: 0.05
+        channel: "_AF_OH"
+        type: "analog_front_high_rate_t"
+        field_str: "brake_imu_zdd"
+
+      - name: "Hydraulic Pressure"
+        units: "PSI"
+        range: [30, 1800]
+        noise_upper: 50
+        channel: "_BAC_STATE_H"
+        type: "bac_state_high_rate_t"
+        field_str: "brake_pressure"
+        resp_level: 2
+
+      - name: "Pump Temperature"
+        units: "C"
+        range: [0, 80]
+        noise_upper: 200
+        channel: "_BAC_STATE_L"
+        type: "bac_state_low_rate_t"
+        field_str: "pump_temperature"
+        resp_level: -1
+      - name: "LS Motor Case Temperature"
+        units: "C"
+        range: [0, 80]
+        noise_upper: 200
+        channel: "_RADM_WHEEL_STATUS"
+        type: "adm_status_t"
+        field_str: "case_temp"
+        resp_level: -1
+      - name: "LS Clamp Case Temperature"
+        units: "C"
+        range: [0, 80]
+        noise_upper: 200
+        channel: "_RADM_CLAMP_STATUS"
+        type: "adm_status_t"
+        field_str: "case_temp"
+        resp_level: -1
+
+    "Environmental":
+      - name: "Odroid Thermometer"
+        units: "C"
+        range: [0, 90]
+        noise_upper: 200
+        noise_lower: -1
+        channel: "ODROID_TEMP"
+        type: "vectorXf_t"
+        field_str: "data[0]"
+        resp_level: 1
+      - name: "FCM Thermometer"
+        units: "C"
+        range: [0, 90]
+        noise_upper: 200
+        channel: "_FC_OL"
+        type: "flight_control_low_rate_t"
+        field_str: "internal_temp"
+        resp_level: 2
+      - name: "LSM Thermometer"
+        units: "C"
+        range: [0, 90]
+        noise_upper: 200
+        channel: "_LS_OL"
+        type: "low_speed_low_rate_t"
+        field_str: "internal_temp"
+        resp_level: 2
+      - name: "FDM Thermometer"
+        units: "C"
+        range: [0, 90]
+        noise_upper: 200
+        channel: "_FD_OL"
+        type: "fiducial_low_rate_t"
+        field_str: "internal_temp"
+        resp_level: 1
+      - name: "AFM Thermometer"
+        units: "C"
+        range: [0, 90]
+        noise_upper: 200
+        channel: "_AF_OL"
+        type: "analog_front_low_rate_t"
+        field_str: "internal_temp"
+        resp_level: 1
+      - name: "ARM Thermometer"
+        units: "C"
+        range: [0, 90]
+        noise_upper: 200
+        channel: "_AR_OL"
+        type: "analog_rear_low_rate_t"
+        field_str: "internal_temp"
+        resp_level: 1
+
+      - name: "Ambient Thermometer"
+        units: "C"
+        range: [0, 60]
+        noise_upper: 200
+        channel: "_AR_OL"
+        type: "analog_rear_low_rate_t"
+        field_str: "ambient_temp"
+        resp_level: 0
+      - name: "Ambient Pressure"
+        units: "C"
+        range: [0, 100]
+        noise_upper: 1
+        channel: "_AR_OM"
+        type: "analog_rear_medium_rate_t"
+        field_str: "vacuum_sensor"
+        resp_level: 0
+
+    "Navigation and Control":
+      - name: "Front Nav IMU +Z"
+        units: "m/s/s"
+        range: [-156, 156]
+        noise_upper: 80
+        channel: "_FC_OH"
+        type: "flight_control_high_rate_t"
+        field_str: "front_nav_imu_xdd"
+        resp_level: 1
+      - name: "Rear Nav IMU +Z"
+        units: "m/s/s"
+        range: [-156, 156]
+        noise_upper: 80
+        channel: "_FC_OH"
+        type: "flight_control_high_rate_t"
+        field_str: "rear_nav_imu_xdd"
+        resp_level: 1
+
+    "Power":
+      - name: "36V Battery Voltage"
+        units: "V"
+        range: [37, 42]
+        noise_upper: 1
+        noise_lower: -1
+        channel: "_AF_BATTERY"
+        type: "battery_status_t"
+        field_str: "pack_voltage"
+        resp_level: -1
+      - name: "36V Battery Current"
+        units: "V"
+        range: [0, 20]
+        noise_upper: 1
+        noise_lower: -1
+        channel: "_AF_BATTERY"
+        type: "battery_status_t"
+        field_str: "current"
+        resp_level: -1
+      - name: "36V Battery Temp"
+        units: "C"
+        range: [0, 60]
+        noise_upper: 1
+        noise_lower: -1
+        channel: "_AF_BATTERY"
+        type: "battery_status_t"
+        field_str: "internal_temp"
+        resp_level: -1
+      - name: "24V Battery Voltage"
+        units: "V"
+        range: [25, 30]
+        noise_upper: 10
+        noise_lower: -1
+        channel: "_AR_BATTERY"
+        type: "battery_status_t"
+        field_str: "pack_voltage"
+        resp_level: 2
+      - name: "24V Battery Temp"
+        units: "C"
+        range: [0, 60]
+        noise_upper: 1
+        noise_lower: -1
+        channel: "_AR_BATTERY"
+        type: "battery_status_t"
+        field_str: "internal_temp"
+        resp_level: -1
+      - name: "24V Battery Current"
+        units: "V"
+        range: [0, 10]
+        noise_upper: 2
+        noise_lower: -1
+        channel: "_AR_BATTERY"
+        type: "battery_status_t"
+        field_str: "current"
+        resp_level: 2
+
+net_checks:
+  ids:
+    pilot: 0
+    odroid: 1
+    af: 50
+    ar: 51
+    fd: 52
+    fc: 53
+    ls: 54
+  max_total_bandwidth: 10 # Mbps
+  required_performances:
+    - max_rtt: 0.5
+      max_drop_rate: 0.5
+      pair: ["pilot", "odroid"]
+      resp_level: 2
+    - max_rtt: 0.1
+      max_drop_rate: 0.5
+      pair: ["odroid", "ls"]
+      resp_level: 2
+    - max_rtt: 0.1
+      max_drop_rate: 0.5
+      pair: ["odroid", "fc"]
+      resp_level: 2
+
+control_checks:
+  max_imu_oscillations: 1 # m/s/s
+  variance_compute_samples: 100
+  watchdog_resp_level: 1
+  oscillations_resp_level: 2

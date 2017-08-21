@@ -1,0 +1,135 @@
+package mithl;
+
+struct fiducial_config_t
+{
+  int64_t utime;
+
+  // width of a strip in meters, and space between successive strips.
+  // for use by fiducial_module.cpp, not sent to fiducial sensor
+
+  // effective width of a strip, including sensor radius: (meters)
+  double strip_width;
+  // effective space between strips, eg. from left edge of a strip
+  // to the left edge of its successor: (meters)
+  double strip_space_between;
+
+  // "POWER":  LED power, 1-1000
+  int16_t power;
+
+  // "POWER MODE":
+  // 0: STATIC
+  // 1: DYNAMIC
+  int8_t powermode;
+
+  // "AVERAGE":  amt of signal averaging. Valid values:
+  // 2^0
+  // 2^1
+  // 2^2
+  // ..
+  // 2^14
+  // 2^15 (unsigned)
+  int16_t average;
+
+  // "EVAL MODE":
+  // 0: FIRST HIT
+  // 1: BEST HIT
+  // 2: MIN DIST
+  // 3: COL 5
+  int8_t evalmode;
+
+  // "HOLD":  hold time 0,1,2,3,5,10,50 or 100ms
+  int8_t hold;
+
+  // "INTLIM":  intensity limit, 0-4095
+  int16_t intlim;
+
+  // "MAXCOL-No.":  max number of colors, 1-31
+  int8_t maxcolno;
+
+  // "OUTMODE":
+  // 0: direct/HI
+  // 1: binary
+  // 2: direct/LO
+  int8_t outmode;
+
+  // "TRIGGER":
+  // 0: CONT
+  // 1: SELF
+  // 2: EXT1
+  // 3: EXT2
+  // 4: EXT3
+  // 5: EXT4
+  int8_t trigger;
+
+  // "EXTEACH":
+  // 0: OFF
+  // 1: ON
+  // 2: STAT1
+  // 3: DYN1
+  int8_t exteach;
+
+  // "CALCULATION MODE":
+  // 0: X/Y INT
+  // 1: s/i M
+  // 2: X/Y/INT
+  // 3: s/i/M
+  int8_t calcmode;
+
+  // "DYN WIN LO":  low limit for DYNAMIC power, 0-4095
+  int16_t dyn_win_lo;
+
+  // "DYN WIN HI":  high limit for DYNAMIC power, 0-4095
+  int16_t dyn_win_hi;
+
+  // "COLOR GROUPS":  whether color groups are enabled
+  // 0: OFF
+  // 1: ON
+  int8_t color_groups;
+
+  // "LED MODE": 
+  // 0: DC
+  // 1: AC
+  // 2: PULSE
+  // 3: OFF
+  int8_t ledmode;  
+  
+  // "GAIN": how much to scale signals; presumably muxes into 8 amplifiers, 1-8
+  int8_t gain;
+
+  // "INTEGRAL":  signal integration, 1-250
+  int16_t integral;
+
+
+  // Constants
+  const int8_t MODE_FIDUCIAL_POWER_STATIC = 0;
+  const int8_t MODE_FIDUCIAL_POWER_DYNAMIC = 1;
+  
+  const int8_t MODE_FIDUCIAL_EVAL_FIRST_HIT = 0;
+  const int8_t MODE_FIDUCIAL_EVAL_BEST_HIT = 1;
+  const int8_t MODE_FIDUCIAL_EVAL_MIN_DIST = 2;
+  const int8_t MODE_FIDUCIAL_EVAL_COL_5 = 3;
+  
+  const int8_t MODE_FIDUCIAL_OUTMODE_DIRECT_HI = 0;
+  const int8_t MODE_FIDUCIAL_OUTMODE_BINARY = 1;
+  const int8_t MODE_FIDUCIAL_OUTMODE_DIRECT_LO = 2;
+  
+  const int8_t MODE_FIDUCIAL_TRIGGER_CONF = 0;
+  const int8_t MODE_FIDUCIAL_TRIGGER_SELF = 1;
+  const int8_t MODE_FIDUCIAL_TRIGGER_EXT1 = 2;
+  const int8_t MODE_FIDUCIAL_TRIGGER_EXT2 = 3;
+  const int8_t MODE_FIDUCIAL_TRIGGER_EXT3 = 4;
+  const int8_t MODE_FIDUCIAL_TRIGGER_EXT4 = 5;
+  
+  const int8_t MODE_FIDUCIAL_EXTEACH_OFF = 0;
+  const int8_t MODE_FIDUCIAL_EXTEACH_ON = 1;
+  const int8_t MODE_FIDUCIAL_EXTEACH_STAT1 = 2;
+  const int8_t MODE_FIDUCIAL_EXTEACH_DYN1 = 3;
+  
+  const int8_t MODE_FIDUCIAL_CALCMODE_X_Y_INT = 0;
+  const int8_t MODE_FIDUCIAL_CALCMODE_S_I_M = 1;
+  const int8_t MODE_FIDUCIAL_CALCMODE_X_Y_SL_INT = 2;
+  const int8_t MODE_FIDUCIAL_CALCMODE_S_I_SL_M = 3;
+  
+  const int8_t MODE_FIDUCIAL_COLORGRPS_OFF = 0;
+  const int8_t MODE_FIDUCIAL_COLORGRPS_ON = 1;
+}

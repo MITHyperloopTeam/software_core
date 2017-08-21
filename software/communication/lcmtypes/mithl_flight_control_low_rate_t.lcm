@@ -1,0 +1,12 @@
+package mithl;
+struct flight_control_low_rate_t
+{
+    int64_t utime;
+
+    float front_imu_mean[6];
+    float rear_imu_mean[6];
+    float front_imu_variance[6];
+    float rear_imu_variance[6];
+
+    float internal_temp;
+}

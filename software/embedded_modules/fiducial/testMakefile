@@ -1,0 +1,66 @@
+
+BINARY_TO_INSTALL=FiducialController.sam.bin
+BUILD_DIR=build
+TEST_DIR=test
+UPLOAD_PORT=/dev/ttyACM0
+
+# Both simulated and normal need to know about the zcm transport
+# and LCM types
+INCLUDES += "-I../../communication/zcm_transport/"
+INCLUDES += "-I../../communication/lcmtypes/built_types/"
+INCLUDES += "-I../../build/include"
+INCLUDES += "-I../../common/"
+
+# SAM needs to know how to do embedded transport
+INCLUDES_SAM += "-I../../externals/zcm_embed/"
+# Whereas SIM needs full ZCM stack
+INCLUDES_SIM += "-I../../externals/zcm/"
+
+# Corresponding SAM libraries
+LIBRARIES += "../../build/lib/zcm_transport/arduino_cobs_serial_transport.sam.o"
+LIBRARIES += "../../build/lib/common/arduino_time_manager.sam.o"
+LIBRARIES += "../../communication/lcmtypes/built_types/zcmgen_c/mithl_vectorXf_t.sam.a"
+LIBRARIES += "../../communication/lcmtypes/built_types/zcmgen_c/mithl_string_t.sam.a"
+LIBRARIES += "../../communication/lcmtypes/built_types/zcmgen_c/mithl_fiducial_t.sam.a"
+LIBRARIES += "../../communication/lcmtypes/built_types/zcmgen_c/mithl_trigger_t.sam.a"
+LIBRARIES += "../../externals/zcm_embed/build/zcm.sam.a"
+LIBRARIES += "../../externals/zcm_embed/build/nonblocking.sam.a"
+
+include ../../arduino_lib_wrapper/make/make_arduinowrapper_utils.mk
+
+# And SIM libraries -- full LCM stack and non-SAM msg objects
+LIBRARIES_SIM += "-lzcm"
+LIBRARIES_SIM += "../../build/lib/zcm_transport/linux_cobs_serial_transport.sim.o"
+LIBRARIES_SIM += "-lserial"
+
+# Below 5 lines are only for serial bridge
+LIBRARIES_SER = ""
+LIBRARIES_SER += "../../communication/lcmtypes/built_types/zcmgen_c/mithl_vectorXf_t.o"
+LIBRARIES_SER += "../../communication/lcmtypes/built_types/zcmgen_c/mithl_string_t.o"
+LIBRARIES_SER += "../../communication/lcmtypes/built_types/zcmgen_c/mithl_trigger_t.o"
+LIBRARIES_SER += "../../communication/lcmtypes/built_types/zcmgen_c/mithl_fiducial_t.o"
+LIBRARIES_SER += "../../build/lib/common/arduino_time_manager.sim.o"
+
+
+all: prepare serial_lcm_bridge_fiducial $(BUILD_DIR)/$(BINARY_TO_INSTALL) simul
+
+serial_lcm_bridge_fiducial: 
+	g++ serial_lcm_bridge_fiducial.cpp $(CFLAGS) $(INCLUDES) $(INCLUDES_SIM) -lserial -lpthread -lstdc++ \
+	    $(LIBRARIES_SIM) $(LIBRARIES_SER) -o $(BUILD_DIR)/$@
+
+test: prepare test_fiducial_utils
+
+test_fiducial_utils: 
+	g++ $(TEST_DIR)/test_fiducial_utils.cpp $(CFLAGS) $(INCLUDES) $(INCLUDES_SIM) -lserial -lpthread -lstdc++ \
+	    $(LIBRARIES_SIM) -o $(TEST_DIR)/$(BUILD_DIR)/$@
+
+simul: prepare $(BUILD_DIR)/FiducialController.sim.bin
+
+prepare:
+	@mkdir -p $(BUILD_DIR)
+	@mkdir -p $(TEST_DIR)/$(BUILD_DIR)
+
+clean:
+	@rm -rf $(TEST_DIR)/$(BUILD_DIR)
+	@rm -rf $(BUILD_DIR)
+

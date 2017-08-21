@@ -1,0 +1,9 @@
+package mithl;
+
+
+struct state_estimator_particle_set
+{
+ int64_t utime;
+ int16_t n_particles;
+ state_estimator_particle particles[n_particles];
+}

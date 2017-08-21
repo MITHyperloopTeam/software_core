@@ -1,0 +1,22 @@
+package mithl;
+
+struct spacex_telemetry_state_t
+{
+        int64_t utime;
+        int8_t team_id;
+        int8_t status;
+        int32_t acceleration; // cm/s^2
+        int32_t position;     // cm
+        int32_t velocity;     // cm/s
+        int32_t battery_voltage; // mV
+        int32_t battery_current; // mA
+        int32_t battery_temperature; // *C * 10
+        int32_t stripe_count; 
+
+        const int8_t STATUS_FAULT=0;
+        const int8_t STATUS_IDLE=1;
+        const int8_t STATUS_READY=2;
+        const int8_t STATUS_PUSHING=3;
+        const int8_t STATUS_COAST=4;
+        const int8_t STATUS_BRAKING=5;
+}

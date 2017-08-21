@@ -1,0 +1,13 @@
+package mithl;
+
+struct tube_t
+{
+ float length;
+ float ambientTemp;
+ float pressure;
+
+ float fiducialSeparation;
+ float distanceToFirstFiducial;
+ float distanceSensorToFiducial;
+ float fiducialWidth;
+}

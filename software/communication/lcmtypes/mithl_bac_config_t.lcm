@@ -1,0 +1,34 @@
+package mithl;
+struct bac_config_t
+{
+	int64_t utime;
+	boolean teleop_watchdog_used;
+	boolean auto_watchdog_used;
+    float teleop_watchdog_duration;
+    float auto_watchdog_duration;
+    
+    float minimum_disarm_duration;
+
+    float valve_scaling_above;
+    float valve_scaling_below;
+    float valve_bias;
+    float valve_Kp;
+    float valve_Kd;
+    float valve_Ki;
+    float valve_exp;
+    float valve_min;
+
+    float motor_scaling;
+    float motor_bias;
+    float motor_Kp;
+    float motor_Kd;
+    float motor_Ki;
+    float motor_exp;
+
+    float integrator_lim;
+    float distance_estimate_rate_constant;
+    float velocity_estimate_rate_constant;
+
+    float deadzone_width;
+    float switch_period;
+}

@@ -1,0 +1,9 @@
+package mithl;
+
+struct fiducial_teach_table_t
+{
+  int64_t utime;
+
+  // Rows in the table
+  fiducial_color_row_t rows[31];
+}

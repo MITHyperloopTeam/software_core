@@ -1,0 +1,21 @@
+package mithl;
+struct analog_rear_high_rate_t
+{
+    int64_t utime;
+
+    float acc_1d_rear;       // pin A0, wire S17
+
+    float ski_right_imu_xdd;
+    float ski_right_imu_ydd;
+    float ski_right_imu_zdd; // right ski imu on Serial1
+    float ski_right_imu_rd;
+    float ski_right_imu_pd;
+    float ski_right_imu_yd;
+
+    float ski_left_imu_xdd;
+    float ski_left_imu_ydd;
+    float ski_left_imu_zdd; // left ski imu on Serial2
+    float ski_left_imu_rd;
+    float ski_left_imu_pd;
+    float ski_left_imu_yd;
+}

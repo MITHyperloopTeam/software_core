@@ -1,0 +1,3 @@
+Demonstrates how to link directly with libsam
+to write library-free, baremetal code for the Arduino
+with our build system.

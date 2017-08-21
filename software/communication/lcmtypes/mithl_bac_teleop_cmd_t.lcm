@@ -1,0 +1,15 @@
+package mithl;
+struct bac_teleop_cmd_t
+{
+	int64_t utime;
+    boolean PWREN; // Enable all brake interface PCB power
+    float PumpMotorPWM; // [0, 1]
+    boolean PumpMotorEnable;
+    boolean OnOffValve;
+    float ValvePWM; // [0, 1]
+    boolean ValveEnable;
+    boolean LSMotorEnable;
+    boolean LSMotorDisable;
+    boolean LSActuatorEnable;
+    boolean LSActuatorDisable;
+}

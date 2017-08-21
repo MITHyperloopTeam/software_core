@@ -1,0 +1,7 @@
+package mithl;
+struct auto_braking_t
+{
+    double slope; 
+    double desiredDistanceToEnd;
+    double kP;
+}

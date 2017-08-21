@@ -1,0 +1,35 @@
+Frame:
+  offset: [250, -250, -1200, 0, -90  , 0]
+  mesh: "FrameClean.obj"
+  color: [0.7, 0.7, 0.7, 0.3]
+
+Shell:
+  parent: "Frame"
+  offset: [0, 0, 725 ,0, 90, 0]
+  mesh: "ShellLogoClean.obj"
+  texture: "ShellLogoClean_color.png"
+  color: [1.0, 1.0, 1.0, 0.5]
+
+LevSki_Right:
+  parent: "Frame"
+  offset: [0, 0, 100, 180, 0, 0]
+  mesh: "LevSki_Assembly_Clean.obj"
+  color: [0.0, 0.5, 1.0, 0.3]
+
+LevSki_Left:
+  parent: "Frame"
+  offset: [0, 0, 650, 180, 0, 0]
+  mesh: "LevSki_Assembly_Clean.obj"
+  color: [0.0, 0.5, 1.0, 0.3]
+
+Brakes:
+  parent: "Frame"
+  offset: [1250, -175, 625, 0, 90, 0]
+  mesh: "BrakesClean.obj"
+  color: [1.0, 0.25, 0.0, 0.3]
+
+LowSpeed:
+  parent: "Frame"
+  offset: [1000, -175, 100, 0, -90, 0]
+  mesh: "LowSpeedClean.obj"
+  color: [0.0, 1.0, 0.2, 0.3]

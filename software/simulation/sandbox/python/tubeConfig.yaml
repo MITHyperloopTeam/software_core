@@ -1,0 +1,10 @@
+tubeLength: 1600.
+
+pushingEnd: 100.
+pushingAccel: 20.
+
+baseReflectivity: 0
+fiducialSpacing: 100.
+fiducialWidth: 0.5
+fiducialFirstStart: 100.
+fiducialReflectivity: 255

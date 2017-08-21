@@ -1,0 +1,20 @@
+
+[submodule "software/externals/PacketSerial"]
+	path = software/externals/PacketSerial
+	url = https://github.com/gizatt/PacketSerial
+[submodule "software/externals/libserial"]
+	path = software/externals/libserial
+	url = https://github.com/gizatt/libserial
+[submodule "software/externals/libbot"]
+	path = software/externals/libbot
+	url = https://github.com/RobotLocomotion/libbot
+[submodule "software/externals/director"]
+	path = software/externals/director
+	url = https://github.com/gizatt/director.git
+	branch = mithl
+[submodule "software/externals/zcm"]
+	path = software/externals/zcm
+	url = https://github.com/gizatt/zcm
+[submodule "software/externals/assimp"]
+	path = software/externals/assimp
+	url = https://github.com/assimp/assimp

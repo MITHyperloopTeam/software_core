@@ -1,0 +1,14 @@
+package mithl;
+
+struct state_estimator_state_t
+{
+ int64_t utime;
+
+ boolean front_nav_imu_good;
+ boolean rear_nav_imu_good;
+ int8_t stopped; // int8_t easier to LCM SPY
+ float stopping_detector_mean_est;
+ float stopping_detector_var_est;
+ float front_imu_x_bias;
+ float rear_imu_x_bias;
+}

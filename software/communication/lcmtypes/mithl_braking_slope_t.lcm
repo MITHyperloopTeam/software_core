@@ -1,0 +1,5 @@
+package mithl;
+struct braking_slope_t
+{
+    double slope; 
+}

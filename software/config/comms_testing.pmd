@@ -1,0 +1,80 @@
+cmd "build and install, fiducial"{
+    exec = "bash -c 'cd ../embedded_modules/net_diag_node && make -B all install UPLOAD_PORT=/dev/mithl_fiducial EXTRA_DEFINE_1=-DNETMON_ID=52'";
+    host = "localhost";
+}
+cmd "relay, fiducial"{
+    exec = "../embedded_modules/net_diag_node/build/serial_lcm_bridge_net_diag_node /dev/mithl_fiducial";
+    host = "localhost";
+}
+
+cmd "build and install, flight control"{
+    exec = "bash -c 'cd ../embedded_modules/net_diag_node && make -B all install UPLOAD_PORT=/dev/mithl_flight_control EXTRA_DEFINE_1=-DNETMON_ID=53'";
+    host = "localhost";
+}
+cmd "relay, flight control"{
+    exec = "../embedded_modules/net_diag_node/build/serial_lcm_bridge_net_diag_node /dev/mithl_flight_control";
+    host = "localhost";
+}
+
+cmd "build and install, low speed"{
+    exec = "bash -c 'cd ../embedded_modules/net_diag_node && make -B all install UPLOAD_PORT=/dev/mithl_low_speed EXTRA_DEFINE_1=-DNETMON_ID=54'";
+    host = "localhost";
+}
+cmd "relay, low speed"{
+    exec = "../embedded_modules/net_diag_node/build/serial_lcm_bridge_net_diag_node /dev/mithl_low_speed";
+    host = "localhost";
+}
+
+
+cmd "build and install, analog front"{
+    exec = "bash -c 'cd ../embedded_modules/net_diag_node && make -B all install UPLOAD_PORT=/dev/mithl_analog_front EXTRA_DEFINE_1=-DNETMON_ID=50'";
+    host = "localhost";
+}
+cmd "relay, analog front"{
+    exec = "../embedded_modules/net_diag_node/build/serial_lcm_bridge_net_diag_node /dev/mithl_analog_front";
+    host = "localhost";
+}
+
+cmd "build and install, analog rear"{
+    exec = "bash -c 'cd ../embedded_modules/net_diag_node && make -B all install UPLOAD_PORT=/dev/mithl_analog_rear EXTRA_DEFINE_1=-DNETMON_ID=51'";
+    host = "localhost";
+}
+cmd "relay, analog rear"{
+    exec = "../embedded_modules/net_diag_node/build/serial_lcm_bridge_net_diag_node /dev/mithl_analog_rear";
+    host = "localhost";
+}
+
+
+cmd "interface" {
+    exec = "python ../UI/netdiag_vis.py";
+    host = "localhost";
+}
+
+cmd "odroid relay" {
+    exec = "../communication/net_diag/run_net_monitor 0";
+    host = "localhost";
+}
+
+script "upload_all" {
+    start cmd "build and install, analog front";
+    wait ms 10000;
+    start cmd "build and install, analog rear";
+    wait ms 10000;
+    start cmd "build and install, fiducial";
+    wait ms 10000;
+    start cmd "build and install, flight control";
+    wait ms 10000;
+    start cmd "build and install, low speed";
+}
+
+script "relay_all" {
+    start cmd "relay, analog front";
+    wait ms 5000;
+    start cmd "relay, analog rear";
+    wait ms 5000;
+    start cmd "relay, fiducial";
+    wait ms 5000;
+    start cmd "relay, flight control";
+    wait ms 5000;
+    start cmd "relay, low speed";
+}

@@ -1,0 +1,38 @@
+package mithl;
+
+struct fiducial_color_dataval_t
+{
+  int64_t utime;
+
+  // "RED","GREEN","BLUE"
+  int16_t color_r;
+  int16_t color_g;
+  int16_t color_b;
+
+  // "X" / "Y": r- and g- color values
+  int16_t color_x;
+  int16_t color_y;
+  
+  // "INT" intensity
+  int16_t color_int;
+
+  // "delta C": distance to recognized color
+  int16_t color_delta_c;
+
+  // "C-No": recognized color number
+  int8_t color_no;
+  
+  // "GROUP": index of color group to which row belongs, if applicable
+  int8_t group;
+
+  // "TRIG": whether triggered by trigger condition
+  int8_t trig;
+
+  // "TEMP": sensor temperature
+  int16_t temp;
+
+  // "RAW RED","RAW GREEN","RAW BLUE"
+  int16_t color_r_raw;
+  int16_t color_g_raw;
+  int16_t color_b_raw; 
+}

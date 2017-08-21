@@ -1,0 +1,13 @@
+package mithl;
+
+struct fiducial_t
+{
+ int64_t utime;
+ double time_since_last;
+
+ // raw information on strip readings. For strip size and spacing,
+ // see fiducial config channel
+ double average_time_between;
+ double average_time_strip;
+ int64_t total_count;
+}

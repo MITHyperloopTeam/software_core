@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="images">
+    <file>slothstronaut.jpg</file>
+  </qresource>
+</RCC>

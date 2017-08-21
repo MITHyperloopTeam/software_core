@@ -1,0 +1,27 @@
+package mithl;
+struct brake_trajectory_simple_t
+{
+	int64_t utime;
+
+    // CALCULATING IMU BIAS
+    float accel_alpha; // processing of accel for launch detect
+    float accel_bias_alpha;  // processing for bias
+
+    // DETECTING LAUNCH and end thereof
+    float launch_start_accel_duration;
+    float launch_start_accel_threshold; //m/s/s +x dir
+    float launch_end_accel_duration;
+    float launch_end_accel_threshold; //m/s/s +x dir
+    float end_of_launch_timeout; // upper bound on launch duration
+    
+    // Setpoint maintained during cruise (i.e. flight, before braking starts)
+    float cruise_setpoint;
+
+    // upper bound on total flight duration
+    float flight_softstop_timeout; 
+    float soft_stop_setpoint;
+
+    float brake_trajectory_start_close_time;
+    float brake_trajectory_start_braking_speed;
+    float brake_trajectory_close_rate_inch_per_second;
+}

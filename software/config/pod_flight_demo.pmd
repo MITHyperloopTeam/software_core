@@ -1,0 +1,87 @@
+
+
+group "0.Simulator" {
+    cmd "simulator" {
+        exec = "../simulation/simulate simConfig.yaml";
+        host = "localhost";
+    }
+}
+
+group "1.Flight Control" {
+    cmd "sim_flight_control" {
+        exec = "../embedded_modules/flight_control/build/flight_control_module.sim.bin";
+        host = "localhost";
+    }
+    cmd "param_server" {
+        exec = "../odroid/param_server/param_server simConfig.yaml";
+        host = "localhost";
+    }
+}
+
+group "2.Analog Module" {
+    cmd "sim_analog_module" {
+        exec = "../embedded_modules/analog/build/analog_module.sim.bin";
+        host = "localhost";
+    }
+}
+
+group "3.Low Speed Module" {
+    cmd "sim_low_speed_module" {
+        exec = "../embedded_modules/low_speed/build/low_speed_module.sim.bin";
+        host = "localhost";
+    }
+}
+
+group "4.Flight State Machine" {
+    cmd "flight_state_machine" {
+        exec = "python ../odroid/flight_state_machine.py";
+        host = "localhost";
+    }
+}
+
+group "5.Network Diagnostic" {
+    cmd "netdiag_1" {
+        exec = "../communication/net_diag/run_net_monitor 7";
+        host = "localhost";
+    }
+    cmd "netdiag_2" {
+        exec = "../communication/net_diag/run_net_monitor 8";
+        host = "localhost";
+    }
+    cmd "netdiag_3" {
+        exec = "../communication/net_diag/run_net_monitor 42";
+        host = "localhost";
+    }
+}
+
+group "10. Webcam" {
+    cmd "webcam_driver" {
+        exec = "../odroid/webcam_driver/build/webcam_driver";
+        host = "localhost";
+    }
+}
+
+cmd "looper" {
+    exec = "python ../tools/simul_looper.py";
+    host = "localhost";
+}
+
+cmd "interface" {
+    exec = "python ../UI/pod_pilot_interface.py";
+    host = "localhost";
+}
+
+script "simulate_flight" {
+    start cmd "simulator";
+    start cmd "param_server";
+    start cmd "sim_flight_control";
+    start cmd "sim_analog_module";
+    start cmd "sim_low_speed_module";
+    start cmd "flight_state_machine";
+
+    start cmd "interface";
+
+    start cmd "netdiag_1";
+    start cmd "netdiag_2";
+    start cmd "netdiag_3";
+}

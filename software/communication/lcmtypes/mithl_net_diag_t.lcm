@@ -1,0 +1,8 @@
+package mithl;
+struct net_diag_t
+{
+    int64_t utime;
+    int32_t msg_id; // needs to be echod precisely in the response
+    int8_t origin_id;
+    int8_t dest_id; // -1 for broadcast
+}

@@ -1,0 +1,15 @@
+package mithl;
+struct analog_rear_medium_rate_t
+{
+    int64_t utime;
+
+    float vacuum_sensor;     // pin A1, wire S8
+
+    float ski_rear_left_gh;  // pin A9, wire S21
+    float ski_rear_left_pot; // pin A3, wire S11
+    float ski_rear_right_gh; // pin A11, wire S22
+    float ski_rear_right_pot; // pin A2, wire S12
+
+    float lcm_rear_pot;      // pin A4, wire S16
+    float lcm_rear_gh;       // pin A10, wire S26
+}

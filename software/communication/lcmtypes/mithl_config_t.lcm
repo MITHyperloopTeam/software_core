@@ -1,0 +1,9 @@
+package mithl;
+
+struct config_t
+{
+ int64_t utime;
+
+ pod_t pod;
+ tube_t tube;
+}

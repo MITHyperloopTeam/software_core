@@ -1,0 +1,31 @@
+package mithl;
+struct analog_rear_output_t
+{
+    int64_t utime;
+
+    float acc_1d_rear;       // pin A0, wire S17
+    float vacuum_sensor;     // pin A1, wire S8
+    float ambient_temp;      // pin A5, wire S27
+    float ski_rear_left_gh;  // pin A9, wire S21
+    float ski_rear_left_pot; // pin A3, wire S11
+    float ski_rear_right_gh; // pin A11, wire S22
+    float ski_rear_right_pot; // pin A2, wire S12
+
+    float lcm_rear_pot;      // pin A4, wire S16
+    float lcm_rear_gh;       // pin A10, wire S26
+
+    // some kind of imu info... to be revised
+    float ski_right_imu_xdd;
+    float ski_right_imu_ydd;
+    float ski_right_imu_zdd; // right ski imu on Serial1
+    float ski_right_imu_rd;
+    float ski_right_imu_pd;
+    float ski_right_imu_yd;
+
+    float ski_left_imu_xdd;
+    float ski_left_imu_ydd;
+    float ski_left_imu_zdd; // left ski imu on Serial2
+    float ski_left_imu_rd;
+    float ski_left_imu_pd;
+    float ski_left_imu_yd;
+}

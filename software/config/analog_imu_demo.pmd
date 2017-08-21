@@ -1,0 +1,12 @@
+cmd "install"{
+    exec = "bash -c 'cd ../embedded_modules/analog_imu_demo_module && make all install UPLOAD_PORT=/dev/ttyACM0'";
+    host = "localhost";
+}
+cmd "relay" {
+    exec = "../embedded_modules/analog_imu_demo_module/build/serial_lcm_bridge_demo /dev/ttyACM0";
+    host = "localhost";
+}
+cmd "interface" {
+    exec = "python ../UI/analog_imu_demo_vis.py";
+    host = "localhost";
+}

@@ -1,0 +1,12 @@
+ATTRS{idVendor}=="2a03", ATTRS{idProduct}=="003d", ATTRS{serial}=="75439313737351217022", MODE:="0666", SYMLINK+="mithl_due_11"
+ATTRS{idVendor}=="2a03", ATTRS{idProduct}=="003d", ATTRS{serial}=="75439313737351513181", MODE:="0666", SYMLINK+="mithl_due_12"
+ATTRS{idVendor}=="2a03", ATTRS{idProduct}=="003d", 
+ATTRS{serial}=="854383332363510181C0", MODE:="0666", SYMLINK+="mithl_due_5"
+ATTRS{idVendor}=="2a03", ATTRS{idProduct}=="003d", 
+ATTRS{serial}=="75439313737351F0C2B1", MODE:="0666", SYMLINK+="mithl_analog_rear"
+ATTRS{idVendor}=="2a03", ATTRS{idProduct}=="003d", 
+ATTRS{serial}=="85438333236351E08001", MODE:="0666", SYMLINK+="mithl_analog_front"
+ATTRS{idVendor}=="2a03", ATTRS{idProduct}=="003d", ATTRS{serial}=="75435363038351A0A102", MODE:="0666", SYMLINK+="mithl_fiducial"
+ATTRS{idVendor}=="2a03", ATTRS{idProduct}=="003d", ATTRS{serial}=="75439313737351F04121", MODE:="0666", SYMLINK+="mithl_low_speed"
+ATTRS{idVendor}=="2a03", ATTRS{idProduct}=="003d", ATTRS{serial}=="75435363038351C0A2C0", MODE:="0666", SYMLINK+="mithl_flight_control"
+ATTRS{idVendor}=="2a03", ATTRS{idProduct}=="003d", ATTRS{serial}=="75439313737351F03022", MODE:="0666", SYMLINK+="mithl_battery_reader"

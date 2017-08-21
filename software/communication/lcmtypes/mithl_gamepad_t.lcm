@@ -1,0 +1,18 @@
+package mithl;
+struct gamepad_t
+{
+    int64_t utime;
+    int8_t n_axes;
+    float axis[n_axes];
+
+    int8_t n_balls;
+    int8_t ball_x[n_balls];
+    int8_t ball_y[n_balls];
+
+    int8_t n_buttons;
+    int8_t button[n_buttons];
+
+    int8_t n_hats;
+    int8_t hat_x[n_hats];
+    int8_t hat_y[n_hats];
+}

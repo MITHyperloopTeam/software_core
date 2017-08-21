@@ -1,0 +1,10 @@
+package mithl;
+
+struct particle_filter_t
+{
+ int64_t utime;
+ int16_t np;
+ int16_t nmeans;
+ float means[nmeans];
+ float weights[np];
+}

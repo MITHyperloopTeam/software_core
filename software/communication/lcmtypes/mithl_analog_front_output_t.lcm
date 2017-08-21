@@ -1,0 +1,22 @@
+package mithl;
+struct analog_front_output_t
+{
+    int64_t utime;
+    
+    float acc_1d_front;       // pin A0, wire S17
+    float ski_front_left_gh;  // pin A2, wire S19
+    float ski_front_left_pot; // pin A4, wire S9
+    float ski_front_right_gh; // pin A1, wire S20
+    float ski_front_right_pot; // pin A9, wire S10
+
+    float lcm_front_pot;      // pin A3, wire S15
+    float lcm_front_gh;       // pin A10, wire S25
+
+    // some kind of imu info... to be revised
+    float brake_imu_xdd;
+    float brake_imu_ydd;
+    float brake_imu_zdd;
+    float brake_imu_rd;
+    float brake_imu_pd;
+    float brake_imu_yd;
+}

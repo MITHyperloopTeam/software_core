@@ -1,0 +1,70 @@
+package mithl;
+
+// set to -2 to not change from current configuration
+struct adm_config_t
+{
+ int64_t utime;
+
+ int8_t estop;
+
+ float command;
+ int8_t mode;
+ float current_lim;
+ float Kp;
+ float Kd;
+ float Ki;
+ int8_t integral_cap;
+
+ int32_t max_rpm;
+ int8_t max_power_forward;
+ int8_t max_power_reverse;
+
+ // brushless motor settings
+ int8_t n_poles;
+
+ // encoder settings
+ int8_t encoder_usage;
+ const int8_t ENCODER_USAGE_UNUSED = 0;
+ const int8_t ENCODER_USAGE_COMMAND = 1;
+ const int8_t ENCODER_USAGE_FEEDBACK = 2;
+
+ int8_t switching_mode;
+ const int8_t SWITCHING_MODE_HALL = 0;
+ const int8_t SWITCHING_MODE_SINUSOIDAL = 1;
+ const int8_t SWITCHING_MODE_SENSORLESS = 2;
+
+ int8_t sinusoidal_mode;
+ const int8_t SINUSOIDAL_MODE_ENCODER = 0;
+ const int8_t SINUSOIDAL_MODE_HALL = 1;
+ const int8_t SINUSOIDAL_MODE_HALL_ENCODER = 2;
+ const int8_t SINUSOIDAL_MODE_SPI_SENSOR = 3;
+ const int8_t SINUSOIDAL_MODE_SIN_COS_SENSOR = 4;
+ const int8_t SINUSOIDAL_MODE_RESOLVER = 5;
+
+ int32_t encoder_pulse_per_rev;
+ int32_t encoder_low_count_limit;
+ int32_t encoder_high_count_limit;
+
+ int8_t closed_loop_error_detection;
+ int8_t closed_loop_feedback_sensor;
+
+ float default_pos;
+ float default_vel;
+ float default_current;
+
+ const int8_t MODE_OPEN_LOOP_SPEED = 0;
+ const int8_t MODE_CLOSED_LOOP_SPEED = 1;
+ const int8_t MODE_CLOSED_LOOP_POS_RELATIVE = 2;
+ const int8_t MODE_CLOSED_LOOP_COUNT_POS = 3;
+ const int8_t MODE_CLOSED_LOOP_POS_TRACKING = 4;
+ const int8_t MODE_TORQUE = 5;
+
+ const int8_t FEEDBACK_SENSOR_HALL = 0;
+ const int8_t FEEDBACK_SENSOR_ENCODER = 1;
+
+ const int8_t CLED_NONE = 0;
+ const int8_t CLED_250 = 1;
+ const int8_t CLED_500 = 2;
+ const int8_t CLED_1000 = 3;
+
+}

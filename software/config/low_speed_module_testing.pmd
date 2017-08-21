@@ -1,0 +1,27 @@
+cmd "build and install"{
+    exec = "bash -c 'cd ${MIT_HL_ROOT}/embedded_modules/low_speed && make -B all install UPLOAD_PORT=/dev/mithl_low_speed'";
+    host = "localhost";
+}
+cmd "simulate low speed testing module"{
+    exec = "${MIT_HL_ROOT}/embedded_modules/low_speed/build/low_speed_module.sim.bin";
+    host = "localhost";
+}
+cmd "relay_low_speed" {
+    exec = "${MIT_HL_ROOT}/embedded_modules/low_speed/build/serial_lcm_bridge_low_speed /dev/mithl_low_speed";
+    host = "localhost";
+}
+
+cmd "low speed system interface" {
+    exec = "python ${MIT_HL_ROOT}/UI/low_speed_driver.py";
+    host = "localhost";
+}
+
+cmd "brake testing interface" {
+    exec = "python ${MIT_HL_ROOT}/UI/brake_testing.py";
+    host = "localhost";
+}
+
+cmd "LCM Message Spy" {
+    exec = "lcm-spy -l udpm://239.255.76.67:62237";
+    host = "localhost";
+}

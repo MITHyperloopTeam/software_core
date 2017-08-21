@@ -1,0 +1,12 @@
+package mithl;
+struct bac_state_low_rate_t
+{
+	int64_t utime;
+
+    boolean estimator_fault;
+    float est_control_rate;
+    float est_control_variance;
+    float pump_temperature;
+
+    bac_teleop_cmd_t cmd_state;
+}

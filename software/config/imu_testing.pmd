@@ -1,0 +1,21 @@
+cmd "build and install, ttyACM0"{
+    exec = "bash -c 'cd ../embedded_modules/imu_reader && make all install UPLOAD_PORT=/dev/ttyACM0'";
+    host = "localhost";
+}
+cmd "build and install, ttyACM1"{
+    exec = "bash -c 'cd ../embedded_modules/imu_reader && make all install UPLOAD_PORT=/dev/ttyACM1'";
+    host = "localhost";
+}
+
+cmd "relay, ttyACM0" {
+    exec = "../embedded_modules/imu_reader/build/serial_lcm_bridge_imu_publish /dev/ttyACM0";
+    host = "localhost";
+}
+cmd "relay, ttyACM1" {
+    exec = "../embedded_modules/imu_reader/build/serial_lcm_bridge_imu_publish /dev/ttyACM1";
+    host = "localhost";
+}
+cmd "LCM Message Spy" {
+    exec = "lcm-spy -l udpm://239.255.76.67:62237";
+    host = "localhost";
+}

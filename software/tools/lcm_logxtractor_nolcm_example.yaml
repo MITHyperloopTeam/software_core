@@ -1,0 +1,5 @@
+_AF_BATTERY: 
+  type: "mithl.battery_status_t"
+  fields:
+    - "utime"
+    - "cell_voltage[0]"

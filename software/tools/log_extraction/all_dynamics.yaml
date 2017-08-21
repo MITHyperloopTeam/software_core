@@ -1,0 +1,223 @@
+FSM_OH:
+  type: "mithl.fsm_state_high_rate_t"
+  fields:
+    - "utime"
+    - "acceleration_est"
+    - "velocity_est"
+    - "position_est"
+
+FSM_STATE:
+  type: "mithl.state_t"
+  fields:
+    - "utime"
+    - "currentState"
+
+ODROID_TEMP: 
+  type: "mithl.vectorXf_t"
+  fields:
+    - "utime"
+    - "data[0]"
+
+_AF_BATTERY: 
+  type: "mithl.battery_status_t"
+  fields:
+    - "utime"
+    - "battery_comms_lock"
+    - "current"
+    - "internal_temp"
+    - "pack_voltage"
+
+_AR_BATTERY: 
+  type: "mithl.battery_status_t"
+  fields:
+    - "utime"
+    - "battery_comms_lock"
+    - "current"
+    - "internal_temp"
+    - "pack_voltage"
+
+_AF_OL: 
+  type: "mithl.analog_front_low_rate_t"
+  fields:
+    - "utime"
+    - "internal_temp"
+    - "front_battery_temp"
+
+_AF_OM:
+  type: "mithl.analog_front_medium_rate_t"
+  fields:
+    - "utime"
+    - "ski_front_left_gh"
+    - "ski_front_left_pot"
+    - "ski_front_right_gh"
+    - "ski_front_right_pot"
+    - "lcm_front_pot"
+    - "lcm_front_gh"
+
+_AF_OH:
+  type: "mithl.analog_front_high_rate_t"
+  fields:
+    - "utime"
+    - "acc_1d_front"
+    - "brake_imu_xdd"
+    - "brake_imu_ydd"
+    - "brake_imu_zdd"
+    - "brake_imu_rd"
+    - "brake_imu_pd"
+    - "brake_imu_yd"
+
+_AR_OL: 
+  type: "mithl.analog_rear_low_rate_t"
+  fields:
+    - "utime"
+    - "internal_temp"
+    - "ambient_temp"
+
+_AR_OM:
+  type: "mithl.analog_rear_medium_rate_t"
+  fields:
+    - "utime"
+    - "vacuum_sensor"
+    - "ski_rear_left_gh"
+    - "ski_rear_left_pot"
+    - "ski_rear_right_gh"
+    - "ski_rear_right_pot"
+    - "lcm_rear_pot"
+    - "lcm_rear_gh"
+
+_AR_OH:
+  type: "mithl.analog_rear_high_rate_t"
+  fields:
+    - "utime"
+    - "acc_1d_rear"
+    - "ski_right_imu_xdd"
+    - "ski_right_imu_ydd"
+    - "ski_right_imu_zdd"
+    - "ski_right_imu_rd"
+    - "ski_right_imu_pd"
+    - "ski_right_imu_yd"
+    - "ski_left_imu_xdd"
+    - "ski_left_imu_ydd"
+    - "ski_left_imu_zdd"
+    - "ski_left_imu_rd"
+    - "ski_left_imu_pd"
+    - "ski_left_imu_yd"
+
+_BAC_STATE_H:
+  type: "mithl.bac_state_high_rate_t"
+  fields:
+    - "utime"
+    - "brake_pressure"
+    - "estimated_distance"
+    - "estimated_distance_velocity"
+    - "PumpMotorPWM"
+    - "OnOffValve"
+    - "ValvePWM"
+
+_BAC_STATE_L:
+  type: "mithl.bac_state_low_rate_t"
+  fields:
+    - "utime"
+    - "pump_temperature"
+
+_FC_OL: 
+  type: "mithl.flight_control_low_rate_t"
+  fields:
+    - "utime"
+    - "internal_temp"
+
+_FC_OH: 
+  type: "mithl.flight_control_high_rate_t"
+  fields:
+    - "utime"
+    - "stopped"
+    - "front_nav_imu_xdd"
+    - "front_nav_imu_ydd"
+    - "front_nav_imu_zdd"
+    - "front_nav_imu_rd"
+    - "front_nav_imu_pd"
+    - "front_nav_imu_yd"
+    - "rear_nav_imu_xdd"
+    - "rear_nav_imu_ydd"
+    - "rear_nav_imu_zdd"
+    - "rear_nav_imu_rd"
+    - "rear_nav_imu_pd"
+    - "rear_nav_imu_yd"
+
+_FC_SE:
+  type: "mithl.state_estimator_particle_set"
+  fields:
+    - "utime"
+    - "particles[0].mu[0]"
+    - "particles[0].mu[1]"
+    - "particles[0].mu[2]"
+
+_FC_SE_STATE:
+  type: "mithl.state_estimator_state_t"
+  fields:
+    - "utime"
+    - "front_imu_x_bias"
+    - "rear_imu_x_bias"
+    - "front_nav_imu_good"
+    - "rear_nav_imu_good"
+    - "stopped"
+
+_FD_O: 
+  type: "mithl.fiducial_t"
+  fields:
+    - "utime"
+    - "time_since_last"
+    - "total_count"
+    - "average_time_between"
+    - "average_time_strip"
+
+_FD_OL: 
+  type: "mithl.fiducial_low_rate_t"
+  fields:
+    - "utime"
+    - "internal_temp"
+
+_FIDUCIAL_INCOMING_DATAVAL: 
+  type: "mithl.fiducial_color_dataval_t"
+  fields:
+    - "utime"
+    - "color_r"
+    - "color_g"
+    - "color_b"
+    - "color_x"
+    - "color_y"
+    - "color_int"
+    - "color_no"
+    - "temp"
+
+_LS_OL: 
+  type: "mithl.low_speed_low_rate_t"
+  fields:
+    - "utime"
+    - "internal_temp"
+
+_RADM_CLAMP_STATUS: 
+  type: "mithl.adm_status_t"
+  fields:
+    - "utime"
+    - "current_motor[0]"
+    - "current_battery[0]"
+    - "case_temp"
+    - "temp[0]"
+    - "temp[1]"
+    - "voltage[0]"
+    - "voltage[1]"
+    - "voltage[2]"
+
+_RADM_WHEEL_STATUS: 
+  type: "mithl.adm_status_t"
+  fields:
+    - "utime"
+    - "current_motor[0]"
+    - "current_battery[0]"
+    - "case_temp"
+    - "temp[0]"
+    - "temp[1]"
+    - "voltage[0]"
+    - "voltage[1]"
+    - "voltage[2]"

@@ -1,0 +1,21 @@
+package mithl;
+struct flight_control_high_rate_t
+{
+    int64_t utime;
+
+    int8_t stopped;
+    
+    float front_nav_imu_xdd;
+    float front_nav_imu_ydd;
+    float front_nav_imu_zdd; // front nav imu on Serial2
+    float front_nav_imu_rd;
+    float front_nav_imu_pd;
+    float front_nav_imu_yd;
+
+    float rear_nav_imu_xdd;
+    float rear_nav_imu_ydd;
+    float rear_nav_imu_zdd; // rear nav imu on Serial1
+    float rear_nav_imu_rd;
+    float rear_nav_imu_pd;
+    float rear_nav_imu_yd;
+}

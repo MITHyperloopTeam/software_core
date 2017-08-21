@@ -1,0 +1,10 @@
+package mithl;
+
+struct state_estimator_particle
+{
+ int64_t utime;
+ int32_t id;
+ float weight;
+ float mu[3];
+ float Sigma[3][3];
+}

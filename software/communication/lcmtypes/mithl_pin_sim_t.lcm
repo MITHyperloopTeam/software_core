@@ -1,0 +1,12 @@
+package mithl;
+
+// Give a pin a value of -1 if it's undefined
+// 0 or 1 if it's digital and a nonnegative
+// voltage if it's analog
+struct pin_sim_t
+{
+ int64_t utime;
+ int16_t analog[12]; // analogRead range is 0-1023, -1 is no change
+                     // analogWrite range is 0-255, -1 is no change
+ int8_t digital[54]; // 0 or 1, -1 for no change
+}

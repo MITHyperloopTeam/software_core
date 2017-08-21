@@ -1,0 +1,8 @@
+package mithl;
+
+struct low_speed_low_rate_t
+{
+ int64_t utime;
+
+ float internal_temp;
+}

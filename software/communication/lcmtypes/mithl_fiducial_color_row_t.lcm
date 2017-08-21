@@ -1,0 +1,28 @@
+package mithl;
+
+struct fiducial_color_row_t
+{
+  int64_t utime;
+
+  // "ROW-No": row in the table, 0-30
+  int8_t row_no;
+  
+  // "X" / "Y": r- and g- color values
+  int16_t color_x;
+  int16_t color_y;
+  
+  // "CTO": color tolerance; detected X/Y must be this close to row X/Y for detection
+  int16_t cto;
+  
+  // "INT" intensity
+  int16_t color_int;
+
+  // "ITO": intensity tolerance; detected INT must be this close to row INT for detection
+  int16_t ito;
+  
+  // "GROUP": index of color group to which row belongs, if applicable
+  int8_t group;
+  
+  // "HOLD":  hold time 0,1,2,3,5,10,50 or 100ms
+  int8_t hold;
+}

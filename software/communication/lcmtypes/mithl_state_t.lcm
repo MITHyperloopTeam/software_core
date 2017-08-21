@@ -1,0 +1,24 @@
+package mithl;
+
+struct state_t
+{
+        int64_t utime;
+
+        const int8_t ESTOP=0; // All actuator power off
+        const int8_t SHUTDOWN=1; // Opens low speed clamp, then gently closes brakes, all with teleop mode on the brake 
+                                 // controller.
+        const int8_t SOFT_STOP=2; // If brakes are not in auto mode, same as ESTOP.
+        			  // If brakes are in auto mode, commands intermediate setpoint
+        
+        const int8_t ARMING=10;  // Gets the system into ARM by switching to AUTO, then opening brakes against hardstops.
+        const int8_t ARM=11;     // System watches FC IMU info and transitions to LAUNCH when sufficient forward accel seen.
+        const int8_t LAUNCH=12;  // Transitioned to from ARM after sufficient forward accel. Watchs FC IMU to transition to FLIGHT
+        const int8_t FLIGHT=13;  // Launch seems to have ended. Broadcasts that we're in flight, lets brake controller do its thing.
+
+        const int8_t PRE_DRIVE=20; //Puts brakes into teleop mode, opens brakes, and then closes low-speed actuator.
+        const int8_t DRIVE=21;     // Accepts drive teleoperation commands.
+        const int8_t TELEOP=99; // Does nothing but will exact estop if requested or required
+
+
+        int8_t currentState; 
+}

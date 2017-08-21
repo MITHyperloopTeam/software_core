@@ -1,0 +1,32 @@
+config:
+    utime : 0
+    power :        1000 # 500/1000 Power
+    powermode :    0   # 0 = STATIC
+    average :      1  # 16 averaging window size (must be pwr of 2)
+    evalmode :     1 # 2,   # 0 = FIRST HIT, 1 = BEST HIT, 2 = MINDIST
+    hold :         0   # hold ERROR signal for 10 ms
+    intlim :       0   # 0/4095 (lower intensity), intensity of sensed light must be above this
+    maxcolno :     1   #  colors in teach table
+    outmode :      0   # 1 = BINARY, 0 = direct-HI (5 colors max)
+    trigger :      0   # 0 = CONT, 6 = PARA (use multiple SET NO) trigger mode
+    exteach :      0 # 1,   # 0=OFF (Depr: 1 = ON, can teach either through input at IN0 or teach button being pressed)
+    calcmode :     0   # 0 = X/Y INT, threshold intensity differently from r/g-color
+    dyn_win_lo :   800 # 800/1000 lo limit for dynamic power
+    dyn_win_hi :   1000 # 1000/1000 hi limit for dynamic power
+    color_groups : 0  # 0 = color groups OFF
+    ledmode :      0  # 0 = DC
+    gain :         6  # 3/8, GAIN chooses amplifier to use on signals
+    integral :     2
+    strip_width :  .0981  # 4 inches = 10.16 cm, less .35 cm for falling edge
+    strip_space_between : 30.48 # inter-strip distance of 100 ft = 30.48 m
+
+teach_table_row:
+    utime:         0
+    row_no:        0
+    color_x:       1600
+    color_y:       1600
+    cto:           2500
+    color_int:     3500
+    ito:           750
+    group:         0
+    hold:          0

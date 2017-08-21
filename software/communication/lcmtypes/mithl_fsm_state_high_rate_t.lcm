@@ -1,0 +1,10 @@
+package mithl;
+
+struct fsm_state_high_rate_t
+{
+        int64_t utime;
+
+        float acceleration_est;
+        float velocity_est;
+        float position_est;
+}

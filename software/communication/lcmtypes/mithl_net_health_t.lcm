@@ -1,0 +1,17 @@
+package mithl;
+struct net_health_t
+{
+    int64_t utime;
+    int16_t num_pairs;
+    int16_t num_transports;
+    // encodes RTT between host_a and host_b
+    // for all pairs that the sender knows about
+    // (or cares to broadcast about)
+    int8_t pair_transport_id[num_pairs];
+    int8_t host_a[num_pairs];
+    int8_t host_b[num_pairs];
+    float est_rtt[num_pairs];
+    float est_drop_rate[num_pairs];
+    float est_stale_rate[num_pairs];
+    int32_t num_mystery_packets[num_pairs];
+}

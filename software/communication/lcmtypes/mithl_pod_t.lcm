@@ -1,0 +1,9 @@
+package mithl;
+
+struct pod_t
+{
+ float mass;
+ float crossSectionalArea;
+ float dragCoefficient;
+ float brakeMu;
+}

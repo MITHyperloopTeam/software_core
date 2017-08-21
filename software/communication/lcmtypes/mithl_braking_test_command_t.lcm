@@ -1,0 +1,22 @@
+package mithl;
+struct braking_test_command_t
+{
+	int64_t utime;
+
+    // command type
+    int8_t command_type;
+
+    const int8_t CMD_MOVE = 1; // move immediately to x
+    const int8_t CMD_STEP = 2; // move to x, wait t_1 seconds, step to y, wait t_2 seconds, step to z 
+    const int8_t CMD_SINE = 3; // move to x, execute sine wave of amplitude y, frequency z for t_1 seconds
+    const int8_t CMD_CHIRP = 4; // move to x, execute sine wave of amplitude y, shifting from frequency
+                            // w to z over t_1 seconds before stopping
+
+    // params
+    float x;
+    float y;
+    float z;
+    float w;
+    float t_1;
+    float t_2;
+}

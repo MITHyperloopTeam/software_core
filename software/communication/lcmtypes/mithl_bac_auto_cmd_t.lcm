@@ -1,0 +1,6 @@
+package mithl;
+struct bac_auto_cmd_t
+{
+	int64_t utime;
+    float setpoint;
+}

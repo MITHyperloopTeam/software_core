@@ -1,0 +1,8 @@
+package mithl;
+
+struct sim_pusher_cmd_t
+{
+ int64_t utime;
+ float duration;
+ float force;
+}
