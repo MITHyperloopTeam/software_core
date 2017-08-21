@@ -7,7 +7,7 @@ or work-in-progress; this code is presented as-is without significant editing
 during the competition. I welcome any folks interested in knowing more to
 reach out to me!
 
-- [Greg](github.com/gizatt), on behalf of the MIT Hyperloop Software Team
+- [Greg](https://github.com/gizatt), on behalf of the MIT Hyperloop Software Team
 
 Overview
 ---------------
