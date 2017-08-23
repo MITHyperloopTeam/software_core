@@ -1,0 +1,18 @@
+language: cpp
+
+matrix:
+  include:
+    - os: linux
+      dist: trusty
+      sudo: required
+
+before_script:  
+    - sudo bash install_dependencies.sh
+    - git submodule update --init --recursive
+    - source software/setup_environment.sh
+
+script: 
+    - cd software/externals 
+    - make
+    - cd ..
+    - make
