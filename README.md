@@ -86,10 +86,11 @@ This process manager points to various processes to do various interesting thing
 
 To run in simulation mode, you'll have to start process management "deputies" pretending to be the ODroid and pilot computer. You can do that with:
 ```
+cd software/config
 bot-procman-deputy --name odroid &
 bot-procman-deputy --name pilot &
 ```
-and let them do their thing in the background.
+and let them do their thing in the background. These must be run from the `software/config` directory, for dumb reasons.
 
 ODroid Details
 -----------------
