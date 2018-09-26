@@ -14,5 +14,6 @@ before_script:
 script: 
     - cd software/externals 
     - make
-    - cd ..
+    - cd sam/libsam/build_gcc && make
+    - cd ../../../../
     - make

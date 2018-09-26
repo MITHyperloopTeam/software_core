@@ -71,6 +71,8 @@ Next, cd into software and run ```source setup_environment.sh```. You should alw
 
 cd into externals and run ```make```. This should just work. If it doesn't, let us know and we'll fix the issue!
 
+Then run ```cd sam/libsam/build_gcc && make```. (Why isn't this part of the externals build?)
+
 Then run ```make``` in software. Everything should build!
 
 How to Fly
@@ -81,6 +83,13 @@ cd software/config
 bot-procman-sheriff -l pod.pmd
 ```
 This process manager points to various processes to do various interesting things. The ```scripts``` dropdown menu has a script or two to get you started. There are a couple differnent procman scripts (all ending in .pmd) to do various things, like brake testing or demoing the full stack sim.
+
+To run in simulation mode, you'll have to start process management "deputies" pretending to be the ODroid and pilot computer. You can do that with:
+```
+bot-procman-deputy --name odroid &
+bot-procman-deputy --name pilot &
+```
+and let them do their thing in the background.
 
 ODroid Details
 -----------------
