@@ -1,4 +1,4 @@
-all: sam arduino_core arduino_libraries lcm libbot libserial zcm zcm_embed assimp
+all: sam arduino_core arduino_libraries lcm libbot libserial zcm zcm_embed
 
 assimp: ../build/bin/assimp
 ../build/bin/assimp:
