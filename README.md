@@ -1,7 +1,7 @@
 MIT Hyperloop Electrical & Software Repository
 ===================
 
-This code is placed online under an MIT license for review by whoever is interested,
+This code is placed online under an LGPL-3 license for review by whoever is interested,
 for review and reference. Many parts of this are partially-finished, unfinished,
 or work-in-progress; this code is presented as-is without significant editing
 during the competition. I welcome any folks interested in knowing more to
